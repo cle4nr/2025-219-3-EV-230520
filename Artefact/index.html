@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="topnav">
+        <a class="active" href="http://127.0.0.1:5500/index.html">Home</a>
+        <a href="http://127.0.0.1:5500/Survey.html">Survey</a>
+    </div>
+    <title>UFC Weight Class Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <style>
+        body {
+            background-color: rgb(195, 195, 195);
+            background-image: url('materials//ufclogo.png');
+            background-repeat: repeat-y;
+            font-family: monospace;
+            font-size: large;
+        }
+
+        div {
+            width: fit-content;
+            max-width: 1000px;
+
+            padding: 20px;
+            background: rgb(237, 237, 237);
+            border: 2px solid #333;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+
+    <br>
+    <div class="box">
+        <h1>The History of the UFC</h1>
+
+        <p> Prior to the UFC, the Gracie family which were the family resposible for the creation of Brazilian Jiu
+            Jitsu,
+            they hosted events later named The Gracie Challenge,
+            these events invited all kinds of martial arts practitioners to their BJJ(Brazilian Jiu Jitsu) dojos to test
+            their skills against the Gracie's self defense art. The Gracie family did this
+            to promote their art and prove that it was superior to other arts. Looking for an opportunity to showcase
+            their
+            art on a larger stage, the UFC(Ultimate Fighting Championship) was founded in 1993 by Art
+            Davie and Rorion Gracie of the Gracie family, with the goal of determining the most effective martial art in
+            a
+            real fight.
+            Initially, it featured fighters from various disciplines, including boxing,
+            Brazilian jiu-jitsu, wrestling, and kickboxing, competing in almost no rules bouts. Over time, in an effort
+            to
+            become more marketable and advertiser friendly, the UFC evolved into
+            a more regulated sport, introducing weight classes, a clearly defined ruleset, and safety measures to ensure
+            fighter well-being. It gained massive popularity, particularly after Dana
+            White became president in 2001, helping to bring MMA(Mixed Martial Arts) to the public's attention. Today,
+            the
+            UFC is a global phenomenon, with world-class athletes and millions of fans worldwide.</p>
+        <br>
+
+        <p> As I stated above, UFC Fighters are now funneled into 8 different weightclass to allow for fair matchups to
+            take
+            place with no one having a weight advantage. In my website I have analysed different datapoints within these
+            weight classes, and have displayed this data on interactive graphs for you.</p>
+    </div>
+    <br><br>
+    <div class="box">
+
+        <h1>Height and Reach</h1>
+        <p>
+            In my graph below, I have displayed the average height and the average reach of each division, and displayed
+            them side by side. As you can clearly see, as the weight of the fighter increases, their height and reach
+            rise accordingly. You may also notice that the gap between their height and reach also increases as weight
+            is increased, I analyse this gap in my second graph.
+        </p>
+    </div>
+    <br><br>
+    <div class="box">
+        <label for="reachcheck">Display Reach</label>
+        <input type="checkbox" id="reachcheck" checked>
+        <label for="heightcheck">Display Height</label>
+        <input type="checkbox" id="heightcheck" checked>
+
+        <canvas id="myBarChart" width="1000" height="590"></canvas>
+    </div>
+    <br><br><br>
+
+    <div class="box">
+        <br>
+        <h1>Ape Index</h1>
+        <p>
+            On average, fighters who engage in striking such as Boxing and in my website's case, MMA, have a higher
+            reach
+            than their height. This is the case because fighters with longer arms compared to their height have a
+            competitive advantage being able to reach their opponent with strikes. For the average human, their reach
+            will
+            be very similar to their height, as identified by the Roman writer Vitruvius prior to 15 BC, the average ape
+            index (reach divided by vertical height) is 1, meaning their reach is equivalent to their height. But this
+            is
+            not the case for fighters as displayed in my graph below. As you can see in this graph, as the weightclasses
+            become higher in weight, their ape index grows higher, meaning heavier and taller fighters have longer
+            reaches
+            compared to their height.
+        </p>
+    </div>
+    <br><br>
+    <div class="box">
+        <canvas id="myBarChartApe" width="1000" height="800"></canvas>
+    </div>
+    <br><br><br>
+
+    <div class="box">
+        <h1>Amount of Fighters per Division</h1>
+        <p"> The graph below shows the number of fighters in each UFC division, with lighter divisions like flyweight
+            and
+            bantamweight typically having fewer fighters, while divisions that mirror the average weight of a man (199
+            pounds) like lightweight and welterweight feature more. The distribution highlights how divisions vary in
+            size,
+            with heavyweight and lightheavyweight having a moderate number of competitors. You may notice that I said
+            that
+            the average weight of a man is 199 pounds, yet the most common weight classes are lightweight (155 pounds)
+            and
+            welterweight (170 pounds). This is because fighters usually cut an unhealthy amount of weight (usually 25-40
+            pounds) leading up to their fights. This means most lightweight and welterweight fighters would be closer to
+            the
+            average weight as they live their daily life.
+            </p>
+    </div>
+    <br><br>
+    <div class="box">
+        <canvas id="myBarChart2" width="1000" height="800"></canvas>
+    </div>
+    <br><br><br>
+
+    <div class="box">
+        <h1>Stances</h1>
+        <p> Fighters can have 3 total stances; Orthodox, Southpaw, and Switch. Your stance can dictate the way you throw
+            your front hand punch called your jab, and your power punches from your rear hand, they have more power as
+            they
+            have more distance to generate velocity. The same applies to lead and back leg kicks.
+        </p>
+
+        <ul>
+            <li>Orthodox meaning the fighters stand with their left foot forward while fighting. It is called Orthodox
+                as it is the most common of the 3 stances, and is seen as the norm. As displayed on the interactive pie
+                chart below. </li>
+            <li>Southpaw meaning the fighters stand with their right foot forward while fighting. The name Southpaw
+                originates from the sport of baseball, as their pitching hand would be facing south. Southpaw is the
+                second most common stance. </li>
+            <li>Switch meaning that the fighter is comfortable switching between Orthodox and Southpaw. This keeps their
+                opponent vigilant as they can throw power punches from either stance. But as shown on my chart below,
+                fighters proficient in both stances are quite rare.</li>
+        </ul>
+
+    </div>
+    <br>
+    <div class="box">
+        <label for="divs">Choose a Weight Division:</label>
+
+        <!--the drop down menu which allows you to pick which stances pie chart to display-->
+        <select name="divs" id="divs">
+            <option value="flyweight">Flyweight</option>
+            <option value="bantamweight">Bantamweight</option>
+            <option value="featherweight">Featherweight</option>
+            <option value="lightweight">Lightweight</option>
+            <option value="welterweight">Welterweight</option>
+            <option value="middleweight">Middleweight</option>
+            <option value="lightheavyweight">Lightheavyweight</option>
+            <option value="heavyweight">Heavyweight</option>
+        </select>
+        <canvas id="pieChart" width="1000" height="600"></canvas>
+    </div>
+    <br><br>
+    <div class="box">
+        <h1>Get Your Ape Index</h1>
+
+        <body>
+            <ul>
+                <li>To find your reach, hold your hands out at your sides and measure from fingertip to fingertip.</li>
+                <li>To find your height, stand against a wall with no shoes, and measure from the floor to the top of
+                    your head.</li>
+            </ul>
+        </body>
+        <form id="apeform">
+            <label for="heightcm">Enter Height in Centimetres:</label>
+            <input type="number" id='heightcm' name='heightcm'><br>
+            <label for="reachcm">Enter Reach in Centimetres:</label>
+            <input type="number" id='reachcm' name='reachcm'><br>
+            <input type="submit">
+        </form>
+        <p id="apereturn"></p>
+        <br><br><br>
+        <h1>Get Your Weight Class</h1>
+        <form id="weightform">
+            <label for="weightlbs">Enter Weight in Pounds:</label>
+            <input type="number" id='weightlbs' name='weightlbs'><br>
+            <input type="submit">
+
+        </form>
+
+        <p id="weightreturn"></p>
+        <p id="weightreturn2"></p>
+
+    </div>
+    <br><br><br><br><br><br>
+    <script type="module">
+
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
+        import { getDatabase, ref, set, get } from 'https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js'
+
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyDQl-DLNTtMOrFqVSdMj8X9CCkz274pu2g",
+            authDomain: "test-299b9.firebaseapp.com",
+            databaseURL: "https://test-299b9-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "test-299b9",
+            storageBucket: "test-299b9.firebasestorage.app",
+            messagingSenderId: "787196357246",
+            appId: "1:787196357246:web:3e669eb3075a61303d062f",
+            measurementId: "G-LCJ0PKLM48"
+
+        };
+
+
+        let AllCharts = {};
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        const firebaseRef = ref(database, "/analytics");
+
+        var reaches = []
+        var heights = []
+
+        var divs = ['flyweight(125lbs)', 'bantamweight(135lbs)', 'featherweight(145lbs)', 'lightweight(155lbs)', 'welterweight(170lbs)', 'middleweight(185lbs)', 'lightheavyweight(205lbs)', 'heavyweight(-265lbs)']
+        //this function gets the info from firebase and saves it as a list to be displayed on my graphs
+        function saveinfo(chartinfo) {
+            chartinfo = chartinfo.val()
+            reaches = chartinfo["Reaches"]
+            heights = chartinfo["Heights"]
+            var fighters = chartinfo["Fighters per division"]
+            var stances = chartinfo["Stances"]
+            let stancecategorydic = Object.values(stances);
+            var ape = chartinfo['Ape index']
+            var catergoryselector = document.getElementById('divs')
+            catergoryselector.onchange = (event) => {
+                let newcategory = event.target.value
+                pieChart(stances[newcategory], 'pieChart')
+            }
+            var CHOICE = catergoryselector.value
+
+            
+
+            let avgape = [1, 1, 1, 1, 1, 1, 1, 1]
+            doubleBar(heights, reaches, 'myBarChart', 'Average Heights and Reach', "height in cm", "reach in cm") //this
+            doubleBarApe(avgape, ape, 'myBarChartApe', 'Ape Index', 'average ape index (1)', 'average fighter ape index')
+            lineChart(fighters, 'myBarChart2', 'Amount of Fighters per Division')
+            pieChart(stances[CHOICE], 'pieChart')
+
+        }
+        let barColors = ['gray', 'green', 'yellow', 'purple', 'lightgray', 'orange', 'lightgreen', 'lightblue']
+        let bar2Colors = ['black', 'lightgreen', 'darkred', 'pink', 'darkgray', 'brown', 'darkgreen', 'blue']
+        let chartvar = null
+
+        //this function creates a double bar chart to display the average heights and the reaches of all divisions
+        function doubleBar(data1, data2, canvasid, title, label1, label2) {
+           
+            var xvalues = divs;
+            var yvalues1 = data1;
+            let yvalues2 = data2;
+
+            chartvar = new Chart(document.getElementById(canvasid), {
+                type: "bar",
+                data: {
+                    labels: xvalues,
+                    datasets:
+                        [
+                            {
+                                label: label1,
+                                data: yvalues1
+                            },
+                            {
+                                label: label2,
+                                data: yvalues2
+                            }
+                        ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                align: 'center',
+                                text: 'Length in Centimetres',
+                                color: 'black',
+                                font: {
+                                    family: 'Arial',
+                                    size: 14,
+                                    weight: 'bold',
+                                },
+                              
+
+                            },
+                            ticks:{
+                                stepSize: 10
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                align: 'center',
+                                text: 'Weight Division',
+                                color: 'black',
+                                font: {
+                                    family: 'Arial',
+                                    size: 14,
+                                    weight: 'bold',
+                                },
+                                
+
+                            }
+                        }
+                        },
+                    plugins: {
+                        title: {
+                            display: true, text: title
+                        },
+                        legend: {
+                            display: true,
+                            onClick: null,
+                        }
+
+                    },
+
+                    responsive: false,
+                    maintainAspectRatio: true,
+
+                }
+            }
+            );
+        }
+
+        let chartvarApe = null
+        //this function compares the average ape index of the divisions and compares them to the average which is 1
+        function doubleBarApe(data1, data2, canvasid, title, label1, label2) {
+          
+            var xlabels = divs;
+            var yvalues = data1;
+            let yvalues2 = data2;
+
+            chartvarApe = new Chart(document.getElementById(canvasid), {
+                type: "bar",
+                data: {
+                    labels: xlabels,
+                    datasets:
+                        [
+                            {
+                                label: label1,        
+                                data: yvalues
+                            },
+                            {
+                                label: label2,
+                                data: yvalues2
+                            }
+                        ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                align: 'center',
+                                text: 'Ape Index',
+                                color: 'black',
+                                font: {
+                                    family: 'Arial',
+                                    size: 14,
+                                    weight: 'bold',
+                                },
+                               
+
+                            },
+                            ticks:{
+                                stepSize: 0.05
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                align: 'center',
+                                text: 'Weight Division',
+                                color: 'black',
+                                font: {
+                                    family: 'Arial',
+                                    size: 14,
+                                    weight: 'bold',
+                                },
+                               
+
+                            }
+                        }
+                        },
+                    plugins: {
+                        title: {
+                            display: true, text: title
+                        },
+                        legend: {
+                            display: true,
+                            onClick: null,
+                        }
+
+                    },
+
+                    responsive: false,
+                    maintainAspectRatio: true,
+
+                }
+            }
+            );
+        }
+
+        //this function creates a line chart of all the amounts of fighters in each division
+        function lineChart(data1, canvasid, title) {
+
+            var xValues = divs;
+            var yValues = data1;
+
+
+            new Chart(document.getElementById(canvasid), {
+                type: "line",
+                data: {
+                    labels: xValues,
+                    datasets:
+                        [
+                            {
+                                label: "Fighters",
+                                // backgroundColor: barColors,
+                                data: yValues
+                            },
+                        ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            
+                            title: {
+                                display: true,
+                                align: 'center',
+                                text: 'Amount of Fighters',
+                                color: 'black',
+                                font: {
+                                    family: 'Arial',
+                                    size: 14,
+                                    weight: 'bold',
+                                },
+                                
+
+                            },
+                            
+                            ticks:{
+                                stepSize: 50
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 700,
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                align: 'center',
+                                text: 'Weight Division',
+                                color: 'black',
+                                font: {
+                                    family: 'Arial',
+                                    size: 14,
+                                    weight: 'bold',
+                                },
+                                
+
+                            }
+                        }
+                        },
+                        plugins: {
+                            title: {
+                                display: true, text: title
+                            },
+                            legend: {
+                                display: false
+                            }
+
+                        },
+
+                        responsive: false,
+                        maintainAspectRatio: true,
+
+                    
+                }
+             });
+            }
+        //this function draws a pie chart of each divisions stances individually, which can be chosen in a drop down menu of all the divisions
+        function pieChart(dropchoice, canvasid) {
+
+            var xValues = Object.keys(dropchoice);
+            var yValues = Object.values(dropchoice);
+            let canvas = document.getElementById(canvasid);
+            let currentchart = AllCharts["stancesPie"];
+
+            if (currentchart == undefined) {
+                let chart = new Chart(canvas, {
+                    type: "doughnut",
+                    data: {
+
+                        labels: xValues,
+                        datasets:
+                            [
+                                {
+                                    label: "Fighters",
+                                    data: yValues
+                                },
+                            ]
+                    },
+                    options: {
+                        plugins: {
+                            title: {
+                                display: true, text: 'Stances of Selected Weight Division'
+                            },
+                            legend: {
+                                display: true
+                            }
+
+                        },
+
+                        responsive: false,
+                        maintainAspectRatio: true,
+
+                    }
+                });
+
+                AllCharts["stancesPie"] = chart;
+            }
+            else {
+
+               
+
+                currentchart.data.labels = xValues;
+                currentchart.data.datasets[0].data = yValues;
+                currentchart.update();
+
+            }
+
+        }
+        // this gets the reach and height ids from the user and returns their ape index by dividing their reach divided by their height
+        function getapeinp(event) {
+            event.preventDefault();
+            let userreach = document.getElementById('reachcm').value;
+            let userheight = document.getElementById('heightcm').value;
+
+            let userape = userreach / userheight;
+            let userape1 = userape.toFixed(2);
+            document.getElementById('apereturn').innerHTML = `Your ape index is: ${userape1}
+The average ape index is 1`;
+
+
+
+        }
+        //this function gets the id of the weight entered by the user and returns which weight class they would be currently, and if they cut water weight like a ufc fighter does
+        function getweightclass(event) {
+            event.preventDefault();
+            let weight = document.getElementById('weightlbs').value;
+            let properweight = weight - 20;
+            let divsweight = { 'Flyweight': 126, 'Bantamweight': 136, 'Featherweight': 146, 'Lightweight': 156, 'Welterweight': 171, 'Middleweight': 186, 'LightHeavyWeight': 206, 'Heavyweight': 265 };
+
+            for (var [k, v] of Object.entries(divsweight)) {
+
+                if (weight <= divsweight[k]) {
+                    var yourweightclass = k;
+                    break;
+
+                }
+            }
+
+            for (var [k, v] of Object.entries(divsweight)) {
+
+                if (properweight <= divsweight[k]) {
+                    var yourrealweightclass = k;
+                    break;
+
+                }
+            }
+
+            if (yourweightclass == undefined) {
+                document.getElementById('weightreturn').innerHTML = 'Weight too high, the heavyweight limit is 265 pounds.'
+            }
+            else {
+                document.getElementById('weightreturn').innerHTML = `Your weight class is: ${yourweightclass}`;
+            }
+
+            if (yourrealweightclass == undefined) {
+                document.getElementById('weightreturn2').innerHTML = `Your weight class including weight cutting is too high, even if you cut water weight like a UFC fighter, you would not be allowed to compete.`;
+            }
+            else {
+                document.getElementById('weightreturn2').innerHTML = `Your weight class if you cut water weight professionally: ${yourrealweightclass}`;
+            }
+
+        }
+        let submitevent = document.getElementById('apeform').addEventListener('submit', getapeinp)
+        let submitevent2 = document.getElementById('weightform').addEventListener('submit', getweightclass)
+
+
+        let reachcheckbox = document.getElementById('reachcheck')
+        let heightcheckbox = document.getElementById('heightcheck')
+
+        reachcheckbox.addEventListener('click', checkboxes)
+        heightcheckbox.addEventListener('click', checkboxes)
+        //this function makes my first graph interactive by selecting which data to display on the graph with 2 toggleable checkboxes
+        function checkboxes(event) {
+
+            if (reachcheckbox.checked == true && heightcheckbox.checked == true) {
+
+                chartvar.data.labels = divs
+                chartvar.data.datasets =
+                    [
+                        {
+                            label: 'reach',
+                            // backgroundColor: barColors,
+                            data: reaches
+                        },
+                        {
+                            label: 'height',
+                            // backgroundColor: bar2Colors,
+                            data: heights
+                        }
+
+                    ]
+        
+                chartvar.update()
+
+            }
+            else if (reachcheckbox.checked == false && heightcheckbox.checked == false) {
+
+                chartvar.data.labels = divs
+                chartvar.data.datasets =
+                    [
+                        {
+                            label: 'reach',
+                            // backgroundColor: barColors,
+                            // data: reachvals
+                        },
+                        {
+                            label: 'height',
+                            // backgroundColor: bar2Colors,
+                            // data: heightvals
+                        }
+
+                    ]
+                
+                chartvar.update()
+
+            }
+            else if (reachcheckbox.checked == false && event.target.id == 'reachcheck') {
+                
+                chartvar.data.labels = divs
+                chartvar.data.datasets = [
+                    {
+                        label: 'height',
+                        // backgroundColor: bar2Colors,
+                        data: heights,
+                    }
+                ]
+                
+                chartvar.update()
+            }
+
+            else if (heightcheckbox.checked == false && event.target.id == 'heightcheck') {
+     
+                chartvar.data.labels = divs
+                chartvar.data.datasets = [
+                    {
+                        label: 'reach',
+                        // backgroundColor: bar2Colors,
+                        data: reaches,
+                    }
+                ]
+                
+                chartvar.update()
+            }
+            else if (reachcheckbox.checked == true && event.target.id == 'reachcheck') {
+                
+                chartvar.data.labels = divs
+                chartvar.data.datasets = [
+                    {
+                        label: 'reach',
+                        // backgroundColor: bar2Colors,
+                        data: reaches,
+                    }
+                ]
+                chartvar.update()
+            }
+
+            else if (heightcheckbox.checked == true && event.target.id == 'heightcheck') {
+                chartvar.data.labels = divs
+                chartvar.data.datasets = [
+                    {
+                        label: 'height',
+                        // backgroundColor: bar2Colors,
+                        data: heights,
+                    }
+                ]
+       
+                chartvar.update()
+
+
+            }
+        }
+
+
+
+        get(firebaseRef).then(saveinfo);
+
+
+    </script>
+
+</body>
+
+
+</html>

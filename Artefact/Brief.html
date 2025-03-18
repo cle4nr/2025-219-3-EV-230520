@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brief</title>
+
+    <style>
+        body {
+            background-color: rgb(195, 195, 195);
+            /* background-image: url('ufclogo.png'); */
+            background-repeat: repeat-y;
+            font-family: monospace;
+            font-size: xx-large;
+        }
+
+        div {
+            background-color: rgb(195, 195, 195);
+            /* background-image: url('ufclogo.png'); */
+            background-repeat: repeat-y;
+            font-family: monospace;
+            font-size: large;
+            width: fit-content;
+            max-width: 1600px;
+
+            padding: 20px;
+            background: rgb(237, 237, 237);
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <br>
+    <h1>Meeting the Brief</h1>
+    <div>
+        <p>Inside the video attached below, I explain why my project meets every basic and advanced requirement included
+            in the brief.</p>
+        <video width="1280" height="720" controls>
+            <source src="materials//MeetingTheBriefVideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div><br><br>
+    <h1>Investigation</h1>
+
+    <div>
+        <p>Initially, I was planning on researching and analyzing marriage, birth, and death rates in Ireland. However,
+            as I delved into this topic, I soon realized that there simply isn’t much substantial data to
+            display on graphs. I discovered that this particular topic really doesn’t
+            interest me at all. <br><br>
+
+            After struggling to decide on one topic, I took some time to think about the things that interest me. As
+            someone who
+            often listens to a wide range of genres, I thought about making an
+            interactive information system focused on spotify songs, artists, and genres.
+            However, after more consideration, I decided against this idea because I felt that the topic
+            would result in an information system that lacked the originality I was looking for in my
+            project. <br><br>
+
+            In the end, I settled on the dataset of UFC fighter statistics. This dataset interests me the most
+            because I am a fan of the sport and martial arts in general, I even train martial arts. Additionally, there
+            is lots of different types of data
+            that I can display, including various metrics regarding the fighters' body mechanics. The topic of optimal
+            physiques in different sports has always interested me. For example, in the sport of basketball, as the hoop
+            is high up, taller players dominate the sport. This leaves shorter players to not make it far in the sport,
+            more often than not. Seeing that data regarding body mechanics is included in the dataset, I thought that I
+            could analyse what type of physique is best for MMA fighting under the UFC ruleset.
+            Another upside of this dataset is that it contains a list of over 4,000 fighters, dating all the way back to the year 1993.
+            This means I will have a larger and more accurate sample size for the averages of different types of data in each division.  <br><br>
+            The target demographic for my interactive information system will be UFC and MMA fans, those individuals who
+            are curious  to explore which fighters and weight classes boast the best statistics in different
+            areas. For example, they might ask questions such as, “Which weight class has the highest ape index?” or
+            “Which weight class contains the most Southpaw fighters?” This focus not only aligns with my interests but
+            also allows me to engage with a passionate community that is equally enthusiastic about gaining deeper
+            insights into the sport.
+        </p>
+    </div><br><br>
+    <h1>Plan and design</h1>
+    <div>
+        <p>I plan to have 2 python files, and 2 html files. The first python file will extract the raw data from my csv
+            file, clean this raw data by removing all whitespace as I cannot analyse missing data, and removing illegal
+            characters which prevent the data from
+            being pushed to firebase. <br><br>
+
+            Then I would store this clean, usable data on Firebase to be analysed next. The second python file will pull
+            the clean data from Firebase to
+            analyse the data within the different weight classes and visualise this data using multiple matplotlib
+            graphs. <br><br>
+            The first html file will be for my main website,
+            index.html, in which I will pull the data analysed in the second python file, store this data as lists, and
+            display this data on
+            the
+            graphs I created using the matplotlib plugin on python. But instead, I would use chart.js instead of
+            matplotlib and transform at least 2 of the graphs into
+            interactive
+            graphs. I plan on making a pie chart that allows you to pick the individual weight division that the chart
+            displays. On change, the website will seamlessly change the pie chart to display data of another weight
+            division. I plan on having a double bar chart that allows you to enable and disable the different types of
+            data.
+            At the end of this webpage, I will include my recommendations tab which will include the user being prompted
+            by
+            multiple questions which returns the user with 2 separate pieces of information relating to the topic of my
+            dataset. <br><br>In my second html file, I will have a survey form, and at least 2 graphs that are comprised of data
+            entered by the user relating to martial arts and the ultimate fighting championship. <br><br> I plan to maintain a
+            very
+            simple colour scheme for both my websites. I would include boxes around all text, and make sure text does
+            not spread across the entire webpage laterally, as it weakens user experience having to move their eyes back
+            and forth. For the index html file I would like to include paragraps of text which explain the graphs below
+            and the importance of this data. I would like to have very subtle background images as to not overload the
+            viewers eyes.</p>
+    </div><br>
+    <div>
+        <h1>System Architecture Diagram</h1>
+        <img src="materials//Untitled - Frame 1.jpg" alt="System Architecture Diagram" width="900" height="1000">
+    </div><br>
+    <div>
+        <h1>Data Cleaning Flow Chart</h1>
+        <iframe src="materials//Basic ufcclean.pdf" width="750" height="600"></iframe>
+    </div><br>
+    <div>
+        <h1>Analysis and Visualisation Flow Chart</h1>
+        <iframe src="materials//PushToFirebase-1.pdf" width="1200" height="600"></iframe>
+    </div>
+    <br>
+
+    <div style="max-width: 1800px;">
+        <h1>Main Webpage Wireframe Diagram</h1>
+
+        <img src="materials//Indexwireframe.jpg" alt="Index Wireframe" width="900" height="1400">
+
+    </div><br>
+    <div style="max-width:1000px;">
+        <h1>Survey Wireframe Diagram</h1>
+        <img src="materials//SurveyWireframe.jpg" alt="Survey Wireframe" width="900" height="450">
+    </div>
+
+    <br><br>
+    <h1>Create</h1>
+
+    <div id='progresslog'>
+        <h1>Progress Log</h1>
+
+        <ul>
+            <h1>Week 1</h1>
+            <li>I researched existing systems and topics I may be interested in, I identified the UFC as my topic.
+            </li>
+            <h1>Week 2</h1>
+            <li>I cleaned the data from the csv file and uploaded it to Firebase to be used for analysis. </li>
+            <h1>Week 3</h1>
+            <li>I started to display the data I cleaned on graphs using matplotlib </li>
+            <li>The first graphs I made were to
+                compare 2 fighters against each other and display a certain part of their data next to each other on a
+                bar chart. </li>
+            <h1>Week 4</h1>
+            <li>I developed more graphs to display data on fighters’ heights, reaches and their fighting stances. </li>
+            <li>I
+                was testing out which type of charts I wolid like to use on my future website. </li>
+            <h1>Week 5</h1>
+            <li> I finished creating the graphs and sent the reslit of my analysis I used to create these graphs to
+                Firebase to be used on the website. </li>
+            <h1>Week 6</h1>
+            <li>I began working on the website, it took me a while to overcome errors I encountered receiving data from
+                Firebase, but then I was able to turn my data from Firebase into usable lists for my graphs. </li>
+            <h1>Week 7</h1>
+            <li>I created the graphing functions for my bar charts and my line chart. I made two separate bar charts to
+                display height and reach. </li>
+            <h1>Week 8</h1>
+            <li>I started working on the interactive pie chart, but ran into issues with the canvas being reused, so I
+                had to find a way to create a new canvas and add it to a dictionary to be checked if it’s existing.
+            </li>
+            <li>This
+                allowed me to change the graph I was displaying in the same spot on the web page. </li>
+            <li>I also created the
+                suggestions page at the end of my website. </li>
+            <h1>Week 9</h1>
+            <li>I began working on my survey page, I created the form and sent it to Firebase but did not make graphs.
+            </li>
+            <li>I also went back and combined my two bar charts into a single bar chart on my main website </li>
+            <h1>Week 10</h1>
+            <li>I went back to python and removed my graphs that compared two chosen fighters and replaced it with a bar
+                chart that compares the average ape indexes of each weight class. </li>
+            <li>I sent this data to Firebase to be
+                displayed on the website too. </li>
+            <li>I made the reach and height bar chart interactive allowing you to toggle
+                which data was displayed. </li>
+            <li>I also wrote the code that takes the survey’s information from firebase to be
+                graphed. </li>
+            <h1>Week 11</h1>
+            <li>I focused on making both websites more visually pleasing, changing fonts & colours, and adding boxes and
+                background images. </li>
+            <h1>Week 12</h1>
+            <li>I tested my code on another computer from a zip file, I wrote the paragraphs that made the website more
+                user friendly, and I linked the survey to the main website at the top of the page. </li>
+            <li>I also recorded my
+                final video on OBS. </li>
+
+
+
+        </ul>
+
+    </div><br>
+    <div>
+        <h1>Form Validation Truth Table</h1>
+        <p>While testing the integrity of my form validation javascript code, I used a truth table to ensure incorrect
+            data was not pushed to firebase when submitted. Every part of my form validation code worked as expected.
+        </p>
+        <img src="materials//truthtable.png" alt="Form Validation Truth Table">
+    </div><br>
+    <div>
+        <h1>A problem I overcame</h1>
+        <p>When I was first writing the code to display my data pulled from firebase on chart.js graphs, I used
+            dictionaries to store the analysed data I was sending to Firebase. One drawback of using dictionaries that I
+            discovered, is that Firebase automatically sorts the keys of a dictionary alphabetically. This means that my
+            bar & line charts x-axises were labelled alphabetically, as opposed to being sorted from lightest to
+            heaviest weight class. This meant that these graphs did not rise from left to right, and looked more as if
+            there was no relationship between the x-axis and y-axis. Below I will show a snippet of the code that stored
+            the
+            analytics as dictionaries.</p>
+        <img src="materials//PreviousCode.png" alt="Previous Data Storage Code">
+        <p>In order to overcome this problem, instead of storing my data as dictionaries that sort alphabetically when
+            pushed to firebase, I store the data as lists which are not sorted meaning the x-axis of my bar and line
+            charts are ordered the way I intended, being from lowest to highest weight. Changing the code so that I
+            store the data in lists as opposed to dictionaries was quite simple, I changed the way that I first define
+            the variable from = dict(), to = list(). Then instead of assigning a key value pair, I use the python append
+            function to add each piece of data in order of the weight of the data's weight class. You may notice that I
+            also removed 3 lines of code that replaced whitespace with 'n/a'. I didn't remove the code, but instead I
+            moved it to the correct file, being the file in which I cleaned the raw data.
+            Below I will show a snippet of my updated code.</p>
+        <img src="materials//UpdatedCode.png" alt="Updated Data Storage Code">
+    </div><br>
+    <div>
+        <h1>An Analytics Algorithm I designed</h1>
+        <p>Below I display both the code that defines my algorithmic function, and the code that applies said function.
+            This algorithm sorts each fighter and their data into the weight classes in which they belong. It adds these
+            fighters to a 2D dictionary as a key-value pair. The function named "weightcheck" has a single paramater,
+            which is the weight of a given fighter. The function takes this weight value returns a number from 1-8,
+            which each represent one of the eight men's weight classes in the UFC. <br><br>
+            The second snippet of code below is the application of the weightcheck function. It is a for loop that
+            checks what number from 1-8 is returned by the fighter's weight value, and adds the fighter and their
+            data into the dictionary represented by the returned numerical value, each dictionary is named after the
+            abbreviation of its weight class, for example, the dictionary
+            that contained the names and data of fighters in the light heavyweight division would be named 'lhw'.
+
+            goes through every fighter's weight in the dataset, and adds the fighter and their
+            data into a dictionary that is named after the abbreviation of its weight class, for example, the dictionary
+            that contained the names and data of fighters in the light heavyweight division would be named 'lhw'.
+            <br><br>
+            This algorithm allows for me to then run these dictionaries through for loops to take the average of one
+            datapoint
+            and add it to a list to be displayed on a graph.
+        </p>
+        <img src="materials//WeightCheck Function.png" alt="Function Algorithm Definition">
+        <img src="materials//WeightCheckUsed.png" alt="Function Algorithm Application">
+
+    </div>
+    <br><br>
+    <h1>Evaluation</h1>
+    <div>
+        <p>As displayed in the embedded video, I covered all of the brief's basic and advanced requirements. My project
+            completed its intended goals to a high standard in my opinion, but I personally believe that I would
+            appreciate my webpage from a
+            viewer's perspective more if I analyzed and displayed more individual fighters’ data, as opposed to simply
+            comparing the averages in the divisions. I believed it would have been harder to display individual
+            fighters’ data on graphs as there are so many fighters in the organization, but it would be more interesting
+            and engaging if I managed to figure out a method to do such a thing. I found an example of this type of
+            website in the Fighter
+            Deep Dive tab of MMA Insights, which will be linked in my references. In this website,
+            you can see all important statistics of a chosen fighter, including the fighter's previous fights. I thought
+            of doing this, but the only way I could imagine making something like this myself, is if I were to use a
+            dataset that included all fights in UFC history. I even found datasets similar to what I have just
+            described, but I found these datasets to be complex and unreliable, they were missing a lot of important
+            data types that I wanted to analyse. <br><br>
+
+            To develop this interactive webpage further, I would return to my original idea in which I compared two
+            fighters' data to see which fighter was superior in a given field. I believe this would have made for a more
+            entertaining webpage for the user, as it provides a more objective outlook on individual fighters. By
+            incorporating an interactive feature that allows the user to compare two fighters
+            the user could choose specific metrics to compare, leading to a more tailored experience.
+            Including visualizations such as side-by-side bar charts or scatterplot graphs could enhance user
+            engagement.
+            These enhancements would not only inform the viewer but also encourage exploration and
+            discussion within the MMA community.
+        </p>
+    </div><br><br>
+    <div>
+        <h1>References</h1>
+        <ul>
+            <li><a href="https://sites.google.com/view/mmainsights/fighter-deep-dive?authuser=0">Fighters Deep Dive, via MMA insights</a></li>
+            <li><a href="https://www.linkedin.com/pulse/network-science-analysis-history-mma-david-coelho">UFC network science, via David Coelho</a></li>
+            <li><a href="https://data.gov.ie/dataset/cepha01-marriages-births-deaths">Intial dataset consideration, via data.gov.ie</a></li>
+            <li><a href="https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023">Second dataset consideration, via kaggle</a></li>
+            <li><a href="https://www.kaggle.com/datasets/aaronfriasr/ufc-fighters-statistics?resource=download">My chosen UFC dataset, via kaggle</a></li>
+        </ul>
+    </div><br><br>
+    <h1>Word Count Summary</h1>
+    <div>
+        <img src="materials//wordcount.png" alt="Summary Word Count">
+    </div>
+    <br><br>
+</body>
+
+</html>

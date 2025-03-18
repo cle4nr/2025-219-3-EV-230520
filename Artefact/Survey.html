@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="topnav">
+        <a class="active" href="http://127.0.0.1:5500/index.html">Home</a>
+        <a href="http://127.0.0.1:5500/Survey.html">Survey</a>
+      </div>
+    <title>UFC Survey</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            background-image: url('materials//stickman.png');
+        }
+    
+        div {
+            font-family:monospace;
+        font-size: large;
+            width: fit-content;
+            padding:20px;
+            background: rgb(237,237,237 );
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<br>
+
+
+<body>
+    <div class="box">
+    <h1>UFC Survey</h1>
+    <!--my survey form which uploads to firebase-->
+        <form id="surveyform">
+            <label for="user">Enter your first name:</label>
+            <input type="text" id="user" name="user" required>
+
+            <br>
+            <label for="age">Enter your age:</label>
+            <input type="number" id="age" name="age" required>
+            <br>
+            <label for="heardufcmma">Have you ever heard of the UFC or MMA?(Check box for yes)</label>
+            <input type="checkbox" id="choice1" name="heardufcmma" checked>
+            <br>
+
+            <label for="arts">If any, which Martial Art did/do you train the most?</label>
+            <!-- <input list='ma_arts' name='arts' id='arts' required> -->
+            <!-- <br> -->
+            <select name="arts" id="arts">
+                <option value="None">None</option>
+                <option value="Brazilian Jiu-Jitsu">Brazilian Jiu-Jitsu</option>
+                <option value="Mixed Martial Arts">Mixed Martial Arts</option>
+                <option value="Judo">Judo</option>
+                <option value="Wrestling">Wrestling</option>
+                <option value="Boxing">Boxing</option>
+                <option value="Kickboxing">Kickboxing</option>
+                <option value="Muay Thai">Muay Thai</option>
+                <option value="Karate">Karate</option>
+                <option value="Taekwando">Taekwando</option>
+                <option value="Other">Other</option>
+                <option value="Aikido">Aikido</option>
+                <option value="Kung-Fu">Kung-Fu</option>
+                <option value="Wing Chun">Wing Chun</option>
+                <option value="Krav Maga">Krav Maga</option>
+                <option value="Escrima">Escrima</option>
+                <option value="Sambo">Sambo</option>
+                <option value="Tai Chi">Tai Chi</option>
+                <option value="Sumo">Sumo</option>
+                <option value="Capoiera">Capoiera</option>
+                </select>
+<br>
+            <label for="favfighter">If any, who is your favourite UFC fighter?</label>
+            <input list='fighternames' name='names' id='names'>
+            <datalist id='fighternames'></datalist><br>
+            <input type="submit" value="Submit">
+
+        </form>
+
+    </div>
+    <br>
+    <!--my canvases for my charts-->
+    <canvas id="pieChart" width="400" height="400" style="float:left;"></canvas>
+    <canvas id="pieChart2" width="400" height="400" style="float:left;"></canvas>
+    <canvas id="fighterBar" width="1000" height="550" style="float: left;"></canvas>
+    <br><br><br>
+</body>
+
+
+<body>
+
+
+
+    <script type="module">
+        let formdatasubmission = document.getElementById('surveyform').addEventListener('submit', pushtofirebase)
+        // my function that gets the elements of all the inputs on the survey, validates them and then adds them to a dictionary and uploads the dictionary to firebase if valid
+        function pushtofirebase(event) {
+            // event.preventDefault();
+            let ageok = true
+            let nameok = true
+            let usernameok = true
+            let namesubmission = document.getElementById('names');
+            let artsubmission = document.getElementById('arts');
+            let yesnocheckbox = document.getElementById("choice1");
+            let usernamesubmission = document.getElementById('user');
+            let agesubmission = document.getElementById('age');
+            let boolsubmission = yesnocheckbox.checked;
+            let submitdic = { 'user': usernamesubmission.value, 'age': agesubmission.value, 'fighter': namesubmission.value, 'martialart': artsubmission.value, 'heardufcmma': boolsubmission };
+            
+            if (agesubmission.value <= 0 ){
+                alert('Age must be positive')
+                ageok = false 
+            }   
+
+            let usernameval = usernamesubmission.value
+            let pattern = /^[a-zA-Z ]+$/
+            let result = pattern.test(usernameval)
+            
+            
+            
+            if (result == false){
+                alert('User name must not have digits.')
+                usernameok = false
+            }
+
+            if (fighternames.includes(namesubmission.value) == false){
+                alert('Fighter name not in list.')
+                nameok = false
+                
+            }
+            
+            if (ageok == true && nameok == true && usernameok == true){
+                
+             push(child(firebaseRef, '/survey1'), submitdic)}
+            
+        }
+
+        
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
+        import { getDatabase, ref, set, get, child, update, push } from 'https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js'
+
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyDQl-DLNTtMOrFqVSdMj8X9CCkz274pu2g",
+            authDomain: "test-299b9.firebaseapp.com",
+            databaseURL: "https://test-299b9-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "test-299b9",
+            storageBucket: "test-299b9.firebasestorage.app",
+            messagingSenderId: "787196357246",
+            appId: "1:787196357246:web:3e669eb3075a61303d062f",
+            measurementId: "G-LCJ0PKLM48"
+
+        };
+        // this function gets a list of the names of the fighters from firebase to be used on the drop down menu datalist
+        var fighternames = null
+        function getinfo(info) {
+
+            info = info.val()
+            fighternames = info['Fighter Names']
+
+            let fighterselect = document.getElementById('fighternames')
+            var myOption = ''
+            for (let i of fighternames) {
+
+                myOption += `<option value="${i}"  />`;
+            }
+            fighterselect.innerHTML = myOption
+
+
+
+        }
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const firebaseRef = ref(database);
+        const firebaseAnalytics = ref(database, '/analytics')
+        get(firebaseAnalytics).then(getinfo)
+        get(child(firebaseRef, '/survey1')).then(processingsurvey)
+        //this function turns the info gotten above with the get command and saves it to dictionaries and displays on graphs
+        function processingsurvey(info1) {
+            let data = info1.val()
+            let booldata = { 'Yes': 0, 'No': 0 };
+            let favfighters = {};
+            let martialarts = {};
+
+            for (const [k, v] of Object.entries(data)) {
+
+
+                if (favfighters[data[k]['fighter']]) {
+                    favfighters[data[k]['fighter']] += 1
+
+                }
+                else { favfighters[data[k]['fighter']] = 1 }
+
+                if (martialarts[data[k]['martialart']]) {
+                    martialarts[data[k]['martialart']] += 1
+                }
+                else { martialarts[data[k]['martialart']] = 1 }
+                if (data[k]['heardufcmma'] == true) {
+                    booldata['Yes'] += 1
+                }
+                else { booldata['No'] += 1 }
+               
+
+
+            }
+
+            console.log(booldata)
+            console.log(favfighters)
+            console.log(martialarts)
+            let colorlist = []
+            pieChart(martialarts, 'pieChart', 'Most common Martial Arts', "Practitioners")
+            singleBar(favfighters, 'fighterBar', 'Favourite Fighters')
+            pieChart(booldata, 'pieChart2', 'Have you heard of the UFC or MMA?', 'Answer')
+        }
+
+        // this function creates a pie chart with the given paramaters above, i used it to make a pie chart of the different martial arts people do, and of how many people have heard or not heard of the ufc or mma
+        function pieChart(dropchoice, canvasid, title, label) {
+
+            var xValues = Object.keys(dropchoice);
+            var yValues = Object.values(dropchoice);
+            let canvas = document.getElementById(canvasid);
+            let chart = new Chart(canvas, {
+                type: "doughnut",
+                data: {
+
+                    labels: xValues,
+                    datasets:
+                        [
+                            {
+                                label: label,
+                                data: yValues
+                            },
+                        ]
+                },
+                options: {
+                    plugins: {
+                        title: {
+                            display: true, text: title
+                        },
+                        legend: {
+                            display: true
+                        }
+
+                    },
+
+                    responsive: false,
+                    maintainAspectRatio: true,
+
+                }
+            });
+
+        }
+        //this function creates a bar chart of all the fighters people have chosen as their favourite in the survey
+        function singleBar(data1, canvasid, title) {
+            var xValues = Object.keys(data1);
+            var yValues = Object.values(data1);
+
+
+
+            new Chart(document.getElementById(canvasid), {
+                type: "bar",
+                data: {
+                    labels: xValues,
+                    datasets:
+                        [
+                            {
+                                label: "Choices",
+                                backgroundColor: ['rgba(255, 125, 125,1)','rgba(125, 194, 255,1)'],
+                                data: yValues
+                            },
+                        ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                align: 'center',
+                                text: 'Choice Frequency',
+                                color: 'black',
+                                font: {
+                                    family: 'Arial',
+                                    size: 14,
+                                    weight: 'bold',
+                                },
+                               
+
+                            },
+                            ticks:{
+                                stepSize: 1
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                align: 'center',
+                                text: 'Selected Fighters',
+                                color: 'black',
+                                font: {
+                                    family: 'Arial',
+                                    size: 14,
+                                    weight: 'bold',
+                                },
+                               
+
+                            }
+                        }
+                        },
+                    plugins: {
+                        title: {
+                            display: true, text: title
+                        },
+                        legend: {
+                            display: false
+                        }
+
+                    },
+
+                    responsive: false,
+                    maintainAspectRatio: true,
+
+                }
+            }
+            );
+        }
+
+
+    </script>
+
+</body>
+
+
+
+
+</html>
